@@ -1,59 +1,57 @@
-# DemoTecnicaFront
+# 💻 DemoAdn-front
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+Front para demo tecnica 
 
-## Development server
+## Tech Stack
 
-To start a local development server, run:
+![ANGULAR](https://img.shields.io/badge/angular-%23E34F26.svg?style=for-the-badge&logo=angular&logoColor=white)
 
-```bash
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+
+### 1. Frontend Setup
+- Instalar dependencias:
+```
+npm install
+```
+- Desplegar front desde el CLI desde la ruta del proyecto clonado
+
+```
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 2. Probar API
+Documentación para probar los endpoints de la API
 
-## Code scaffolding
+- POST verificar mutación de un ADN
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+```
+/POST http://54.176.142.162/api/mutation
+```
+Usar body JSON
 
-```bash
-ng generate component component-name
+```
+{
+    "adn": [
+        "AAGTCC",
+        "CAAGTC",
+        "TCAAGT",
+        "GTCAAG",
+        "TGTCAA",
+        "CTGTCA"
+    ]
+}
+```
+- GET Obtener ultimos diez registros
+
+```
+/GET http://54.176.142.162/api/list
+```
+- GET Obtener estadisticas de los ADN registrados
+
+```
+/GET http://54.176.142.162/api/stats
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+LIMITE DE API A 10 SOLICITUDES POR MINUTO
