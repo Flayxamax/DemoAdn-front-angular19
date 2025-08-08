@@ -1,0 +1,19 @@
+<div class="flex justify-center items-start min-h-screen bg-gray-100">
+  <div class="mt-20 bg-white rounded-xl shadow-lg p-8 w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center">Estadísticas ADN</h2>
+    <div class="space-y-4">
+      <div class="flex justify-between">
+        <span class="font-medium">Mutaciones contadas:</span>
+        <span class="font-bold text-green-600">{{ count_mutations }}</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="font-medium">Mutaciones no contadas:</span>
+        <span class="font-bold text-red-600">{{ count_no_mutations }}</span>
+      </div>
+      <div class="flex justify-between">
+        <span class="font-medium">Ratio:</span>
+        <span class="font-bold text-blue-600">{{ ratio.toFixed(2) }}</span>
+      </div>
+    </div>
+  </div>
+</div>

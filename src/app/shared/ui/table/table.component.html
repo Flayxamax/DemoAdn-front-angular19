@@ -1,0 +1,43 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-400">
+    <thead class="text-xs uppercase bg-gray-800 text-gray-200">
+      <tr>
+        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3">ADN</th>
+        <th scope="col" class="px-6 py-3">Tiene mutación</th>
+        <th scope="col" class="px-6 py-3">Fecha verificación</th>
+      </tr>
+    </thead>
+    @for (adn of adns(); track adn.id) {
+    <tbody>
+      <tr class="border-b bg-gray-700 border-gray-700 hover:bg-gray-600">
+        <th
+          scope="row"
+          class="px-6 py-4 font-medium whitespace-nowrap text-white"
+        >
+          {{ adn.id }}
+        </th>
+        <td class="px-6 py-4 text-white">
+          {{ adn.adn.join(", ") }}
+        </td>
+        <td class="px-6 py-4 text-white">
+          @if (adn.has_mutation) {
+          <span class="text-green-500 font-semibold">Sí</span>
+          } @else {
+          <span class="text-red-500 font-semibold">No</span>
+          }
+        </td>
+        <td class="px-6 py-4 text-white">
+          {{ adn.verified_at | dateformat }}
+        </td>
+      </tr>
+    </tbody>
+    } @empty {
+    <tr class="border-b bg-gray-800 border-gray-700 hover:bg-gray-600">
+      <td colspan="9" class="px-6 py-4 text-center">
+        Error: No se encontraron adns
+      </td>
+    </tr>
+    }
+  </table>
+</div>
