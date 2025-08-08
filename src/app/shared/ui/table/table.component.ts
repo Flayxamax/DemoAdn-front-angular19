@@ -8,6 +8,11 @@ import { Adn } from '../../interfaces/adn';
   templateUrl: './table.component.html',
   styleUrl: './table.component.css',
 })
+/**
+ * Componente de tabla que gestiona y pone los datos en una tabla
+ *
+ * @property {Adn[]} adns - Lista de ADN
+ */
 export class TableComponent {
   adns = input.required<Adn[]>();
 }

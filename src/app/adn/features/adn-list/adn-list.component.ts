@@ -9,6 +9,16 @@ import { Adn } from '../../../shared/interfaces/adn';
   templateUrl: './adn-list.component.html',
   styleUrl: './adn-list.component.css',
 })
+/**
+ * Componente que gestiona la lista de los ultimos 10 ADN
+ *
+ * Este componente utiliza el servicio `AdnService` para obtener los últimos 10 registros de ADN
+ * y los almacena en la propiedad `adns`
+ *
+ * Al inicializar el componente, se realiza automáticamente la carga de de los ADN
+ *
+ * @property {Adn[]} adns - Lista de ADN
+ */
 export default class AdnListComponent {
   private _adnService = inject(AdnService);
   adns: Adn[] = [];

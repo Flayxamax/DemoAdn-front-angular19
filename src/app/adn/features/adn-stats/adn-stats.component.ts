@@ -7,6 +7,17 @@ import { AdnService } from '../../data-access/adn.service';
   templateUrl: './adn-stats.component.html',
   styleUrl: './adn-stats.component.css',
 })
+/**
+ * Componente que muestra las estadísticas de ADN
+ *
+ * Obtiene los datos desde el servicio `AdnService`
+ *
+ * Al inicializar el componente, se realiza automáticamente la carga de las estadísticas
+ *
+ * @property {number} count_mutations - Número de secuencias de ADN con mutaciones
+ * @property {number} count_no_mutations - Número de secuencias de ADN sin mutaciones
+ * @property {number} ratio - Proporción de mutaciones
+ */
 export default class AdnStatsComponent {
   private _adnService = inject(AdnService);
 
@@ -22,7 +33,10 @@ export default class AdnStatsComponent {
         this.ratio = stats.ratio;
       },
       error: (error) => {
-        console.error('Error fetching ADN stats:', error);
+        console.error(
+          'Error: No se pudieron cargar las estadísticas de ADN',
+          error
+        );
       },
     });
   }
