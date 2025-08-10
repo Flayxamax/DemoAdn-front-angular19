@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { AdnService } from '../../data-access/adn.service';
+import AdnListComponent from '../adn-list/adn-list.component';
 
 @Component({
   selector: 'app-adn-stats',
-  imports: [],
+  imports: [AdnListComponent],
   templateUrl: './adn-stats.component.html',
   styleUrl: './adn-stats.component.css',
 })
@@ -21,6 +22,7 @@ import { AdnService } from '../../data-access/adn.service';
 export default class AdnStatsComponent {
   private _adnService = inject(AdnService);
 
+  total_adns: number = 0;
   count_mutations: number = 0;
   count_no_mutations: number = 0;
   ratio: number = 0;
@@ -31,6 +33,7 @@ export default class AdnStatsComponent {
         this.count_mutations = stats.count_mutations;
         this.count_no_mutations = stats.count_no_mutations;
         this.ratio = stats.ratio;
+        this.total_adns = this.count_mutations + this.count_no_mutations;
       },
       error: (error) => {
         console.error(

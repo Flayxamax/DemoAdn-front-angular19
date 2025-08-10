@@ -4,8 +4,8 @@
       <tr>
         <th scope="col" class="px-6 py-3">ID</th>
         <th scope="col" class="px-6 py-3">ADN</th>
-        <th scope="col" class="px-6 py-3">Tiene mutación</th>
         <th scope="col" class="px-6 py-3">Fecha verificación</th>
+        <th scope="col" class="px-6 py-3">Tiene mutación</th>
       </tr>
     </thead>
     @for (adn of adns(); track adn.id) {
@@ -21,14 +21,14 @@
           {{ adn.adn.join(", ") }}
         </td>
         <td class="px-6 py-4 text-white">
+          {{ adn.verified_at | dateformat }}
+        </td>
+        <td class="px-6 py-4 text-white">
           @if (adn.has_mutation) {
           <span class="text-green-500 font-semibold">Sí</span>
           } @else {
           <span class="text-red-500 font-semibold">No</span>
           }
-        </td>
-        <td class="px-6 py-4 text-white">
-          {{ adn.verified_at | dateformat }}
         </td>
       </tr>
     </tbody>

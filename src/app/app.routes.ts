@@ -11,10 +11,6 @@ export const routes: Routes = [
     loadComponent: () => import('./adn/features/adn-stats/adn-stats.component'),
   },
   {
-    path: 'adn-list',
-    loadComponent: () => import('./adn/features/adn-list/adn-list.component'),
-  },
-  {
     path: '**',
     redirectTo: 'adn-stats',
   },
